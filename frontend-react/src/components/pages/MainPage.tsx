@@ -1,17 +1,17 @@
-import { useEffect } from "react";
-import { getCommon } from "../../api/controllers/common-controller";
+import { useState } from "react";
+import ButtonCalculate from "../components/ButtonCalculate";
 
 const MainPage = () => {
-    useEffect(() => {
-        getCommon()
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((e) => console.log(e));
-    }, []);
+    const [name, setName] = useState<number>(0);
+
+    const changeName = (value: number, key: string) => {
+        setName(name + 2);
+        console.log(value, key)
+    }
 
     return <div>
-        Main Page
+        {name}
+        <ButtonCalculate op={4} back={changeName}/>
     </div>
 }
 

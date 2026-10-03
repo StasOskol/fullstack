@@ -1,0 +1,149 @@
+$bg-color: #000000;
+$main-text: #ffffff;
+$hover-effect: #ff0000;
+$bg-btn: #6f2b14;
+$bg-btn-hv: #b77a64;
+
+
+@mixin mix-front($color-text: $main-text, $font-weight: 300, $font-size: 22px){
+    color: $color-text;
+    font-weight: $font-weight;
+    font-size: $font-size;
+}
+
+.wrp {
+    width: 1920px;
+    margin: 0 auto;
+}
+
+.header {
+    &-menu {
+        background-color: $bg-color;
+        display: flex;
+        justify-content: space-between;
+
+        &-list {
+            width: 500px;
+            justify-content: space-between;
+            display: flex;
+            font-weight: 500;
+            font-size: 16px;
+            list-style-type: none;
+            padding: 35px;
+            margin: 0;
+
+            &-el {
+                color: $main-text;
+                cursor: pointer;
+                transition: color 0.5s ease;
+
+                &:hover {
+                    color: $hover-effect;
+                }
+            }
+        }
+
+        &-wrp {
+            align-self: center;
+
+            &-btn {
+                color: $main-text;
+                background-color: $bg-btn;
+                border-radius: 10px;
+                margin-right: 35px;
+                padding: 15px 39px;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.8s ease, transform 0.8s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                    background-color: $bg-btn-hv;
+                }
+
+                &:active {
+                    background-color: #ff0000;
+                }
+            }
+        }
+    }
+
+    &-first  {
+        background: url(../../../public/pngs/bg-first.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &-wrp {
+            margin: 0;
+            padding-top: 265px;
+            padding-left: 38px;
+            padding-bottom: 108px;
+
+            &-title {
+                @include mix-front($main-text, 800, 70px);
+                // color: $main-text;
+                // font-weight: 800;
+                // font-size: 70px;
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+            &-description {
+                width: 766px;
+                @include mix-front($main-text, 400, 22px);
+                margin-bottom: 108px;
+            }
+
+            &-btn {
+                width: 766px;
+                display: flex;
+                justify-content: center;
+
+                &-text {
+                    @include mix-front($main-text, 500, 16px);
+                    background-color: $bg-btn;
+                    padding: 20px 118px;
+                    border: none;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+.main {
+    background-color: $bg-color;
+
+    &-cinema{
+        margin: 0;
+
+        &-title{
+            @include mix-front($main-text, 600, 43px);
+            width: 900px;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0 auto 80px;
+        }
+
+        &-carucel {
+            display: flex;
+            justify-content: space-between;
+
+            &-btn {
+                background: transparent;
+                border: none;
+
+                &:hover{
+                    background: red;
+                }
+            }
+
+            &-poster {
+                width: 1600px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
